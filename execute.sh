@@ -8,3 +8,6 @@ poi.segment.txt.indexed.gz
 
 java -mx4096M -cp lib/args4j-2.0.6.jar:./:./src/:lib/trove-3.0.3.jar  jgibblda.LDA -inf -dir . -model model -dfile
 head.poi.segment.txt.index.gz
+
+#predict
+-inf -dir . -model model -dfile ./ -predict
