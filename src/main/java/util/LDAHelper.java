@@ -133,14 +133,14 @@ public class LDAHelper {
 		List<SegToken> segs = segmenter.process(str, JiebaSegmenter.SegMode.INDEX);
 		for (SegToken seg : segs)
 		{
-			segment_result+=" "+seg.word.toString();
+			segment_result+=" "+seg.word.getToken();
 		}
 		return segment_result;
 	}
 	
 	public static void main(String[] args)
 	{
-		LDAHelper h = new LDAHelper(args[1],args[2]);
+		LDAHelper h = new LDAHelper(args[0],args[1]);
 		BufferedReader buf = null;  
         
         String str = null;  
