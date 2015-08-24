@@ -140,6 +140,21 @@ public class LDAHelper {
 	
 	public static void main(String[] args)
 	{
+		LDAHelper h = new LDAHelper(args[1],args[2]);
+		BufferedReader buf = null;  
+        
+        String str = null;  
+        //System.out.println("Please input");  
+        while( (buf = new BufferedReader(new InputStreamReader(System.in))) != null)
+        {
+        	try {
+				str = buf.readLine();
+				System.out.println(parseModel(h.predict(segment(str))));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+        }
+		/*
 		LDAHelper h = new LDAHelper("model","poi.segment.txt.cate_index");
 		
 		System.out.println(parseModel(h.predict("KTV")));
@@ -157,7 +172,7 @@ public class LDAHelper {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-        }
+        }*/
 	}
 	
 	public static HashMap<Integer,Double> get_cate_distribution_map(String str)
