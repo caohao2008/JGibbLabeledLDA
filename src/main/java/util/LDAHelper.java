@@ -148,9 +148,16 @@ public class LDAHelper {
         while( (buf = new BufferedReader(new InputStreamReader(System.in))) != null)
         {
         	try {
-				str = buf.readLine().trim();
-				String seg_str = segment(str);
-				System.out.println(str+"\t"+seg_str+"\t"+parseModel(h.predict(seg_str)));
+				str = buf.readLine();
+				if(str!=null)
+				{
+					String seg_str = segment(str);
+					System.out.println(str+"\t"+seg_str+"\t"+parseModel(h.predict(seg_str)));
+				}
+				else
+				{
+					System.out.println(str+"\t"+null);
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -190,7 +197,7 @@ public class LDAHelper {
 		for(int i = 0; i < result.size(); i++)  
 		{
 			int index = Integer.parseInt(result.get(i)+"");
-			cate_dist_str = cate_dist_str + index+":"+cate_distribution_map.get(index)+" ";
+			cate_dist_str = cate_dist_str + index+":"+(""+cate_distribution_map.get(index)).substring(0,10)+" ";
 		}
 		return cate_dist_str;
 	}
