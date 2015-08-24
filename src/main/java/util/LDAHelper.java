@@ -145,23 +145,23 @@ public class LDAHelper {
         
         String str = null;  
         //System.out.println("Please input");  
-        while( (buf = new BufferedReader(new InputStreamReader(System.in))) != null)
-        {
-        	try {
-				str = buf.readLine();
-				if(str!=null)
-				{
-					String seg_str = segment(str);
-					System.out.println(str+"\t"+seg_str+"\t"+parseModel(h.predict(seg_str)));
-				}
-				else
-				{
-					System.out.println(str+"\t"+null);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-        }
+        buf = new BufferedReader(new InputStreamReader(System.in));
+        try {
+	        while( (str = buf.readLine()) != null)
+	        {
+					if(str!=null)
+					{
+						String seg_str = segment(str);
+						System.out.println(str+"\t"+seg_str+"\t"+parseModel(h.predict(seg_str)));
+					}
+					else
+					{
+						System.out.println(str+"\t"+null);
+					}
+	        }
+        } catch (Exception e) {
+			e.printStackTrace();
+		}
 		/*
 		LDAHelper h = new LDAHelper("model","poi.segment.txt.cate_index");
 		
