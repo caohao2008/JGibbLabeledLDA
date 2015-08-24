@@ -81,8 +81,8 @@ public class LDAHelper {
 	public static synchronized Model predict(String str)
 	{
 		try {
-			System.out.println("cate distribution for "+str);
-			return inferencer.predict(segment(str));
+			//System.out.println("cate distribution for "+str);
+			return inferencer.predict(str);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
@@ -148,8 +148,9 @@ public class LDAHelper {
         while( (buf = new BufferedReader(new InputStreamReader(System.in))) != null)
         {
         	try {
-				str = buf.readLine();
-				System.out.println(parseModel(h.predict(segment(str))));
+				str = buf.readLine().trim();
+				String seg_str = segment(str);
+				System.out.println(str+"\t"+seg_str+"\t"+parseModel(h.predict(seg_str)));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

@@ -122,7 +122,7 @@ public class Inferencer
             //System.out.print("\b\b\b\b\b\b");
         }// end iterations
         newModel.liter--;
-        System.out.println("predict cost time : "+(System.currentTimeMillis()-start)+"ms");
+        //System.out.println("predict cost time : "+(System.currentTimeMillis()-start)+"ms");
         return newModel;
     }
 
