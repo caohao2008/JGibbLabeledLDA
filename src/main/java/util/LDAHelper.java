@@ -130,7 +130,7 @@ public class LDAHelper {
 	{
 		String segment_result = "";
 		
-		List<SegToken> segs = segmenter.process(str, JiebaSegmenter.SegMode.INDEX);
+		List<SegToken> segs = segmenter.process(str, JiebaSegmenter.SegMode.SEARCH);
 		for (SegToken seg : segs)
 		{
 			segment_result+=" "+seg.word.getToken();
